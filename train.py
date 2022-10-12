@@ -60,3 +60,15 @@ r = model.fit_generator(
   steps_per_epoch=len(training_set)
 )
 model.save("model2.h5")
+
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing import image
+import numpy as np
+import cv2
+model = load_model('model2.h5')
+test_image = image.load_img(r"Datasets\train\Normal\img12.png", target_size = (224,224))
+test_image = image.img_to_array(test_image)
+test_image=test_image/255
+test_image = np.expand_dims(test_image,axis=0)
+result = model.predict(test_image)
+print(result)
