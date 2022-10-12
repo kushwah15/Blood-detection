@@ -11,7 +11,7 @@ from tensorflow.keras.models import Sequential
 import numpy as np
 from glob import glob
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-
+import cv2
 # re-size all the images to this
 IMAGE_SIZE = [224, 224]
 
